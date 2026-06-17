@@ -1,0 +1,13 @@
+/* Global styles (very small) */
+html, body, ion-app, app-root {
+  height: 100%;
+}
+
+ion-content {
+  --padding-top: 16px;
+}
+
+.dark {
+  --ion-background-color: #121212;
+  --ion-text-color: #eee;
+}
