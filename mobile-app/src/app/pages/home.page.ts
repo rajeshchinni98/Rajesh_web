@@ -27,4 +27,14 @@ export class HomePage {
     localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
+
+  openResume() {
+    // Open PDF in a new tab/window (works for dev server and GitHub Pages)
+    window.open('assets/Rajesh_Mylipilli_Resume.pdf', '_blank');
+  }
+
+  openResumeEmbedded() {
+    // Navigate to embedded resume page inside the app
+    this.router.navigate(['/resume']);
+  }
 }

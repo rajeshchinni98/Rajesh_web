@@ -11,6 +11,9 @@
 <ion-content class="ion-padding">
   <p *ngIf="username">Welcome, {{username}}!</p>
 
+  <ion-button expand="block" (click)="openResume()">View Resume (new tab)</ion-button>
+  <ion-button expand="block" fill="outline" (click)="openResumeEmbedded()">View Resume (in app)</ion-button>
+
   <ion-list>
     <ion-item *ngFor="let it of items" (click)="openDetail(it.id)">
       <ion-label>
