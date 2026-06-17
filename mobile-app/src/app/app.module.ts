@@ -12,10 +12,13 @@ import { HomePage } from './pages/home.page';
 import { DetailPage } from './pages/detail.page';
 import { SettingsPage } from './pages/settings.page';
 
+import { AuthGuard } from './guards/auth.guard';
+import { ItemService } from './services/item.service';
+
 @NgModule({
   declarations: [AppComponent, LoginPage, HomePage, DetailPage, SettingsPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthGuard, ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ITEMS } from '../../assets/mock-data';
+import { ItemService } from '../services/item.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html'
 })
 export class HomePage {
-  items = ITEMS;
+  items = [] as any[];
   username = '';
-  constructor(private router: Router) {
+  constructor(private router: Router, private itemService: ItemService) {
     const u = localStorage.getItem('user');
     this.username = u ?? '';
+    this.items = this.itemService.getAll();
   }
 
   openDetail(id: string) {
@@ -20,5 +21,10 @@ export class HomePage {
 
   goSettings() {
     this.router.navigate(['/settings']);
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 }

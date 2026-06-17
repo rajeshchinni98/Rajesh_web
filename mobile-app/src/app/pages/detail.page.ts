@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ITEMS } from '../../assets/mock-data';
+import { ItemService } from '../services/item.service';
 
 @Component({
   selector: 'app-detail',
@@ -8,9 +8,9 @@ import { ITEMS } from '../../assets/mock-data';
 })
 export class DetailPage {
   item = null as any;
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private itemService: ItemService) {
     const id = this.route.snapshot.paramMap.get('id');
-    this.item = ITEMS.find(i => i.id === id) ?? { title: 'Not found', description: '' };
+    this.item = itemService.getById(id ?? '') ?? { title: 'Not found', description: '' };
   }
 
   back() {

@@ -10,6 +10,7 @@ Quick start
 
 1. Install dependencies
 
+   cd mobile-app
    npm install
 
 2. Run locally in browser (Ionic dev server)
@@ -24,9 +25,33 @@ or with Angular CLI
 
    npm run build
 
+Capacitor / Device builds (optional)
+
+1. Create a production web build (outputs into `www`):
+
+   npm run build:web
+
+2. Initialize Capacitor (only once)
+
+   npm run cap:init
+
+3. Add native platform(s) (only once):
+
+   npm run cap:add:android
+   npm run cap:add:ios
+
+4. Sync web build to native project after changes:
+
+   npm run cap:sync
+
+5. Open native IDE:
+
+   npm run cap:open:android
+   npm run cap:open:ios
+
 Notes
 
-- This scaffold is minimal to get started. Run `npm install` from the mobile-app folder to install packages.
-- To run on device, integrate Capacitor and follow Ionic docs: https://ionicframework.com/docs
+- The repository already contains a basic scaffold. After running `npm install`, follow the steps above to prepare native builds.
+- Building for Android/iOS requires native SDKs (Android Studio/Xcode) on your machine or CI runners.
 
 Files added to repo: mobile-app/*
